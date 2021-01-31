@@ -73,6 +73,8 @@ nmap <F8> :TagbarToggle<CR>
 "synatx checking
 Plug 'scrooloose/syntastic'
 
+"quick select
+Plug 'gcmt/wildfire.vim'
 call plug#end()
 "===================================================
 "NerdTree                                                  
