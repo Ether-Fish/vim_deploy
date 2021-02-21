@@ -40,6 +40,8 @@ noremap J 5j
 
 map dh :set nosplitright<CR>:vsplit<CR>
 map dj :set splitbelow<CR>:split<CR>
+map dl :set splitright<CR>:vsplit<CR>
+map dk :set nosplitbelow<CR>:split<CR>
 
 map <leader>h <C-w>h
 map <leader>j <C-w>j
