@@ -1,7 +1,10 @@
+"设置编码
 set enc=utf8
 set fencs=utf8,gbk,gb2312,gb18030
+
 "相对位置
 set relativenumber
+
 "显示行号
 set nu
 set number
@@ -23,6 +26,7 @@ set autoindent
 
 "设置 leader键
 let mapleader =","
+
 "设置搜索
 set hlsearch  "高亮搜索
 exec "nohlsearch"  
@@ -31,13 +35,18 @@ set smartcase "大写搜索区分
 
 "菜单命令行Tab键选择
 set wildmenu
+
+" 取消vi一致性
+set nocompatible
+
 "快速source
 map <leader>s :source $MYVIMRC<CR>
+
+"快速跳转
 noremap J 5j
-"noremap K 5k
+noremap K 5k
 
 "split the window
-
 map dh :set nosplitright<CR>:vsplit<CR>
 map dj :set splitbelow<CR>:split<CR>
 map dl :set splitright<CR>:vsplit<CR>
@@ -48,12 +57,10 @@ map <leader>j <C-w>j
 map <leader>k <C-w>k
 map <leader>l <C-w>l
 
-
 map <up> :res -5<CR>
 map <down> :res +5<CR>
 map <left> :vertical resize +5<CR>
 map <right> :vertical resize -5<CR>
-
 
 " quick quit
 map Q :q<CR>
@@ -120,18 +127,36 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif       
 
 "open nerdtree with <c-t>                                  
-map <C-t> :NERDTreeToggle<CR>                                                                               
+map <C-t> :NERDTreeToggle<CR>                       
+
+
 "===================================================
 "gruvbox should not put in the vim-plug
 set bg=dark
 "设置背景为黑色
 colorscheme gruvbox
 "设置主题为 gruvbox
+
+
 "===================================================
 "indentline
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 0
 let g:indentLine_char = '¦'
+
+
+"===================================================
+" UltiSnips
+" 设置新建为水平分页
+let g:UltiSnipsEditSplit = "vertical" 
+let g:UltiSnipsSnippetDirectories = ["~/.vim/plugged/vim-snippets/UltiSnips"]
+" 设置的唯一代码片段来源目录
+"let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit = ""
+" 设置Trigger键
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsListSnippets  = "<c-l>"     
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 "===================================================
 ""coc-nvim 官方配置
 "" TextEdit might fail if hidden is not set.
